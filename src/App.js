@@ -1,25 +1,38 @@
-import logo from './logo.svg';
 import './App.css';
+import Main from "./components/Main/Main";
+import BottomDrawer from "./components/Drawer/Drawer";
+import React, {useEffect} from "react";
+import {message} from "antd";
+import Auth from "./components/Auth/Auth";
+import {useSelector} from "react-redux";
+import {selectIsUserLoggedIn} from "./store/selectors/userSelectors";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const apiUrl = process.env.REACT_APP_URL;
+    const actionLogin = useSelector(selectIsUserLoggedIn);
+    const isLogin = localStorage.getItem('login')
+
+    if (localStorage.getItem('basket') === null) {
+        localStorage.setItem('basket', '{"products":[{"product_id":0,"count":0}]}');
+    }
+
+    useEffect(()=>{
+
+
+
+    },[])
+    useEffect(()=>{
+    },[actionLogin])
+    return (
+        <div className={'w-screen h-screen overflow-hidden '}>
+            { isLogin === 'false' ?<Auth/> :<div>
+                <Main/>
+                <BottomDrawer/>
+            </div>
+            }
+
+        </div>
+    );
 }
 
 export default App;
