@@ -26,7 +26,7 @@ const ContentCarusel = () => {
                             backgroundPosition: 'center',
                             cursor: 'pointer'
                         }} className={'w-full h-[180px] rounded-lg relative overflow-hidden'}>
-                            <div className={'z-10 absolute bottom-0 bg-gray-800/50 w-full text-white pl-2'}>  wqew</div>
+                            <div className={'z-10 absolute bottom-0 bg-gray-800/50 w-full text-white pl-2'}>  {value.description.substring(0,12)}</div>
                         </div>
                     </div>
                 </div>
